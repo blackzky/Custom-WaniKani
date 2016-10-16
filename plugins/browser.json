@@ -1,0 +1,76 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-battery-status": {
+            "PACKAGE_NAME": "line.of.awesome.customwk"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "line.of.awesome.customwk"
+        },
+        "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "line.of.awesome.customwk"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "line.of.awesome.customwk"
+        },
+        "cordova-plugin-contacts": {
+            "PACKAGE_NAME": "line.of.awesome.customwk"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "line.of.awesome.customwk"
+        },
+        "cordova-plugin-device-motion": {
+            "PACKAGE_NAME": "line.of.awesome.customwk"
+        },
+        "cordova-plugin-device-orientation": {
+            "PACKAGE_NAME": "line.of.awesome.customwk"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "line.of.awesome.customwk"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "line.of.awesome.customwk"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "line.of.awesome.customwk"
+        },
+        "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "line.of.awesome.customwk"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "line.of.awesome.customwk"
+        },
+        "cordova-plugin-media": {
+            "PACKAGE_NAME": "line.of.awesome.customwk"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "line.of.awesome.customwk"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "line.of.awesome.customwk"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "line.of.awesome.customwk"
+        },
+        "cordova-plugin-vibration": {
+            "PACKAGE_NAME": "line.of.awesome.customwk"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "line.of.awesome.customwk"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "line.of.awesome.customwk"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "line.of.awesome.customwk"
+        }
+    }
+}
