@@ -18,46 +18,61 @@
  */
 var app = {
     // Application Constructor
-    initialize: function () {
+    initialize: function() {
         this.bindEvents();
     },
     // Bind Event Listeners
     //
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
-    bindEvents: function () {
+    bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
     },
     // deviceready Event Handler
     //
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
-    onDeviceReady: function () {
+    onDeviceReady: function() {
         app.receivedEvent('deviceready');
     },
     // Update DOM on a Received Event
-    receivedEvent: function (id) {
-        $(function () {
+    receivedEvent: function(id) {
+        $(function() {
+            // Add deffered objects --This will allow us to dynamically load javascript files with one callback...
+            var csLength = app.customScripts.length;
+            var defferedObjs = [];
+            for (var i = 0; i < csLength; i++) {
+                defferedObjs.push($.get(app.customScripts[i]));
+            }
 
-            $.get("js/custom1.js", function (data1) {
-                $.get("js/custom2.js", function (data2) {
+            // Use apply() instead of normally calling the $.when() function since we need to pass an array of $.get() defferred objects...
+            $.when.apply(this, defferedObjs)
+                .then(function() {
+                    var data = arguments; // Important! --Cache the 'arguments' object so that we can refer to it on the code block below
                     var ref = cordova.InAppBrowser.open('https://www.wanikani.com/review/session', '_blank', 'location=no,zoom=no');
 
-                    ref.addEventListener('loadstop', function () {
-                        if (!localStorage.customOneLoaded) {
-                            ref.executeScript({ code: data1 }, function (d) { localStorage.customOneLoaded = true; });
-                        }
-                        if (!localStorage.customTwoLoaded) {
-                            ref.executeScript({ code: data2 }, function (d) { localStorage.customTwoLoaded = true; });
+                    ref.addEventListener('loadstop', function() {
+                        for (var j = 0; j < csLength; j++) {
+                            // Use index 0 of the cached 'data' object (arguments --passed to the then() after the $.when() has succeeded) 
+                            // Indexes of 'data' [0 - data, 0 - textStatus, 0 - jqXHR]
+                            ref.executeScript({ code: data[j][0] }, app.customScriptAdded(j));
                         }
                     });
 
+                    $('p#msg').hide();
+                }, function(res) {
+                    $('p#msg').text('Failed to load one of the custom user scripts').addClass('error-text');
                 });
-
-            });
         });
+    },
 
-        delete localStorage.customOneLoaded;
-        delete localStorage.customTwoLoaded;
-    }
+    customScriptAdded: function(index) {
+        console.log(app.customScripts[index] + ' was added...');
+    },
+
+    // List of custom user scripts that will be injected to the Review Session Page of WaniKani
+    customScripts: [
+        'js/custom1.js',
+        'js/custom2.js'
+    ],
 };
