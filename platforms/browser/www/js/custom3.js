@@ -2,15 +2,25 @@
 // Add a next button for the Custom-WaniKani Reviewer App
 
 function main() {
-    // Add next button
-    var next = $('<button/>', {
-        text: 'Next',
-        css: 'position: fixed; bottom: 10px; width: 100%; height: 3em;',
-        click: function() {
-            alert('Next');
-        }
-    });
-    $("body").append(next).end();
+    init();
+
+
+    function init() {
+        // Hide some stuff
+        $("#option-kana-chart").hide();
+        $("#option-last-items").hide();
+
+        // Add next button
+        var next = $('<button/>', {
+            text: 'Next',
+            style: 'position: fixed; bottom: 10px; width: 100%; height: 3em;',
+            click: function() {
+                $(".icon-chevron-right").parent().click();
+            }
+        });
+        $("body").append(next).end();
+    }
+
 }
 
 var script = document.createElement('script');
