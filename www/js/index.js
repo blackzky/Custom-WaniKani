@@ -73,6 +73,7 @@ var app = {
     // List of custom user scripts that will be injected to the Review Session Page of WaniKani
     customScripts: [
         'js/custom1.js',
-        'js/custom2.js'
+        'js/custom2.js',
+        'js/custom3.js'
     ],
 };
