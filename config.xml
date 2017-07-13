@@ -1,4 +1,4 @@
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="line.of.awesome.customwk" version="1.0.2">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="line.of.awesome.customwk" version="1.0.3">
   <name>Custom WaniKani</name>
   <description>An application that injects custom user scripts to the WaniKani Lesson/Review page.</description>
   <author href="#" email="gervelgiva@gmail.com">Gervel Giva</author>
