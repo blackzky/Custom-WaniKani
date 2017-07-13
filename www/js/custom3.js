@@ -6,10 +6,6 @@ function main() {
 
 
     function init() {
-        // Hide some stuff
-        $("#option-kana-chart").hide();
-        $("#option-last-items").hide();
-
         // Add next button
         var next = $('<button/>', {
             text: 'Next',
