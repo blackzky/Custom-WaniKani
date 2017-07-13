@@ -74,6 +74,7 @@ var app = {
     customScripts: [
         'js/custom1.js',
         'js/custom2.js',
-        'js/custom3.js'
+        'js/custom3.js',
+        'js/custom4.js'
     ],
 };
